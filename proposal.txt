@@ -1,0 +1,16 @@
+Project Overview:
+    Simulates the relationship between a set of specific predatory animals and its population relative to a prey population and also disease vectors.
+Implementation:
+        3 maps containing 3 keys: Coyote, Lion, Orca. Each of these are signified by the Predator Class.
+            within each map are lists signifying: 
+                1. Members of the predatory population by name age health and hunger. Signified by Predator class
+                2. Members of the prey population by name age and health. signified by Prey class
+                3. Disease Vectors by name. Every time cycle: the prey will have a chance to be infected with it which might later infect predators that end up eating them.
+Simulates:
+    as prey population decreases over time due to predation, the predatory population will also decline with time as there is less prey for them to eat and they will starve.
+    As predator population declines, this will encourage prey population to increase over time.
+    prey and predators will both die of old age.
+    Predators must each eat multiple prey. if a predator goes 2 years with insufficient food it dies.
+    if there is a disease threat active a percentage of the prey population will contract disease's status at random. each year they have a culmulative chance of throwing it off, succumbing to it, or incubating it for another year.
+    When a predator eats a creature with disease it will be affliced: 
+    predator has a chance of either succumbing to an illness, dying from it, or throwing it off as per the prey rules. When diseased, predators have a less likely chance of successfully hunting.
