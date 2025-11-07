@@ -1,17 +1,49 @@
-//headers, map, list, etc
+#include <iostream>
+#include <list>
+using namespace std;
 
-//Consts TOTALYEARS=25, BIRTHCHANCEPREDATORS = ; BIRTHCHANCEPREY = ,MAXAGEPREDATORS, PREDATORBIRTHAGE = 5, MAXHUNGER = 2, 
+const int TOTALYEARS=25;
+const int BIRTHCHANCEPREDATORS = 10, MAXAGEPREDATORS = 10 , PREDATORBIRTHAGE = 5, MAXHUNGER = 2, HUNTEFFECIENCY = 20;
+const int BIRTHCHANCEPREY = 35, MAXAGEPREY = 7, PREYBIRTHAGE = 3;
 
-//predator class
+
+class disease{
+    private:
+    string name;
+    int outbreakChance;
+    int infectionChance;
+    int currentDuration;
+    int maxDuration;
+    int lethalityPreyChance;
+    int lethalityPredatorChance;
+    int cureChance;
+    //METHODS=====
+    public:
+    //setters and getters
+    void setName(string n){name=n;}
+    void setOutbreakChance(int c){outbreakChance=c;}
+
+    //constructors
+
+    //class functions    
+    void infectRandomPopulation(list<prey> &p){
+        if (rand() > outbreakChance){
+            return //no one was infected by this disease this year
+        }  
+        for(auto P : p){
+            P.setDisease(this);
+        }
+    }
+};
+
+class predator{
     //MEMBERS=====
-    //const yearlyFood = 2
-    //const birthChance = 4;
-    //const huntefficiency = % to succeed in a hunt
-    //birthChance
-    //name
-    //age
-    //Disease disease
-    //hunger
+    string name;
+    int huntefficiency; //% to succeed in a hunt
+    int BIRTHCHANCEPREDATORS;
+    int age;
+    disease diseaseHolder;
+    int hunger;
     //METHODS=====
     //lifetick()
         //if age>MAXAGEPREDATORS || hunger>=MAXHUNGER
@@ -45,7 +77,7 @@
                 //resolveDisease
         //if rand()%100+1 < lethalityPredatorChance
             //die
-        
+}
 //prey class
     //MEMBERS=====
     //name
@@ -55,19 +87,6 @@
     //die
     //birth
     //resolveDisease
-//disease class
-    //name
-    //infectionChance:
-    //currentDuration
-    //maxDuration
-    //lethalityPreyChance
-    //lethalityPredatorChance
-    //METHODS=====
-    //infectRandomPopulation(&list)
-        //if rand() > infectionChance   
-            //return //no one was infected by this disease this year
-        //for each prey in list.
-            //prey.setDisease(this)
 
 //RunSimluation(&map)
     //print(map)
