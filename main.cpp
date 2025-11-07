@@ -1,5 +1,8 @@
 #include <iostream>
 #include <list>
+#include <map>
+#include <tuple>
+#include <array>
 #include <animal.h>
 using namespace std;
 
@@ -110,7 +113,18 @@ class disease{
 //print(map)
     //iterate through, print every element. neatly organized
 
-main
+int main(){
+    map<string,tuple<animal,animal,disease>> predatorMap ={
+        "Coyote": 
+        "Lion",
+        "Orcas",
+    }
+
+    
+
+
+    return 0;
+}
     //map containing {Coyotes, Lions, Orcas}
         //3 arrays of lists. List 1 contains members of predator population, with a name, their age, whether they are sick, and when they have last eaten.
         //list 2 conatins members of the prey population, with a name, with an age, and whether they have a disease.
