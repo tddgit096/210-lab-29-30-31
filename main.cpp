@@ -36,14 +36,14 @@ class disease{
     }
 };
 
-class predator{
+//class predator{
     //MEMBERS=====
-    string name;
-    int huntefficiency; //% to succeed in a hunt
-    int BIRTHCHANCEPREDATORS;
-    int age;
-    disease diseaseHolder;
-    int hunger;
+    //string name;
+    //int huntefficiency; //% to succeed in a hunt
+    //int BIRTHCHANCEPREDATORS;
+    //int age;
+    //disease diseaseHolder;
+    //int hunger;
     //METHODS=====
     //lifetick()
         //if age>MAXAGEPREDATORS || hunger>=MAXHUNGER
