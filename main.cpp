@@ -20,7 +20,7 @@ void runSimluation(map<string,tuple<animal,animal,disease>> &mapMaster){
     while(year<TOTALYEARS){
         for (map<string,tuple<animal,animal,disease>>::iterator it = mapMaster.begin(); it != mapMaster.end(); ++it) {
             //get<0>(it->second); //predatorlist   
-            for (list<animal>::iterator predatorIt = it.begin(); predatorIt != it.end(); ++predatorIt){
+            for (list<disease>::iterator diseaseIt = it->second.begin(); diseaseIt != it->second.end(); ++diseaseIt){
                 
             }
             
