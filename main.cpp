@@ -6,6 +6,7 @@
 #include <array>
 #include <animal.h>
 #include <disease.h>
+#include <algorithm>
 using namespace std;
 
 const int TOTALYEARS=25;
@@ -18,7 +19,27 @@ void runSimluation(map<string,tuple<animal,animal,disease>> &mapMaster){
     int year = 1;
     while(year<TOTALYEARS){
         for (map<string,tuple<animal,animal,disease>>::iterator it = mapMaster.begin(); it != mapMaster.end(); ++it) {
-            it->second //preylist
+            //get<0>(it->second); //predatorlist   
+            for (list<animal>::iterator predatorIt = it.begin(); predatorIt != it.end(); ++predatorIt){
+                
+            }
+            
+            
+            for (list<animal>::iterator predatorIt = it.begin(); predatorIt != it.end(); ++predatorIt){
+                
+            }
+           
+            for_each(get<0>(it->second).begin(), get<0>(it->second).end(), ),
+            get<1>(it->second); //preylist
+
+            get<2>(it->second); //diseaselist 
+            for_each(get<3>(it->second)){
+
+            }
+            for (list<animal>::iterator predatorIt = predatorIt.begin(); it != predatorIt.end(); ++it){
+                
+            }
+
         //For all diseases:
             //disease.infectRandomPopulation(list of prey)
         //For all predators:
