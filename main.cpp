@@ -110,7 +110,7 @@ class disease{
 //print(map)
     //iterate through, print every element. neatly organized
 
-//main
+main
     //map containing {Coyotes, Lions, Orcas}
         //3 arrays of lists. List 1 contains members of predator population, with a name, their age, whether they are sick, and when they have last eaten.
         //list 2 conatins members of the prey population, with a name, with an age, and whether they have a disease.

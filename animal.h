@@ -14,11 +14,12 @@ private:
 
 public: 
     string genRandName();
-    animal()                          { name = ""; age = 0; }
-    // write three more constructors
-    animal(string name)               { set_name(name);set_age(0)}
+    // Constructors
+    animal()                          { name = genRandName(); age = 0; }
+    animal(bool ispred)               { name = genRandName(); age = 0; isPredator=ispred;}
+    animal(string name)               { set_name(name);set_age(0);isPredator=false;}
+    animal(string name, bool ispred)  { set_name(name);set_age(0); isPredator=ispred;}
     animal(string name,int age, bool ispredator = false)               { set_name(name);set_age(age);isPredator = ispredator;}
-
 
 
     // setters and getters
@@ -26,11 +27,21 @@ public:
     string get_name() const         { return name; };
     void set_age(int a)             { age = a; };
     int get_age() const             { return age; }
-    void set_color(string c)        { color = c; }
-    string get_color() const        { return color; }
+    disease* getDisease()           { return &DiseaseHolder;}
+    void setDisease(disease)        {}//TODO, make a instantiated copy of the class type, transfer the info, but set disease incubation time to 0;
 
-    genRandName()
-
+    string genRandName(){
+        string name;
+        if(isPredator){
+            name+="PRDTR_ID(";
+        }
+        else{
+            name+="PREY_ID(";
+        }
+        name+=rand()%1000;
+        name+=")";
+        return name;
+    }
 };
 
 #endif
