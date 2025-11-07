@@ -31,7 +31,8 @@ public:
     void setDisease(disease)        {}//TODO, make a instantiated copy of the class type, transfer the info, but set disease incubation time to 0;
 
     string genRandName(){
-        string name;
+        srand(time(NULL));
+        string name="";
         if(isPredator){
             name+="PRDTR_ID(";
         }

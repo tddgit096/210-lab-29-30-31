@@ -125,9 +125,15 @@ int main(){
     ifstream finPrey("dataPrey.txt");
     ifstream finDiseas("dataDiseas.txt");
     if(!finPred){cout<<"dataPred.txt not found. Terminating.";return 0;}
-    while (true)
-    fin.close();   
+    if(!finPrey){cout<<"dataPrey.txt not found. Terminating.";return 0;}
+    if(!finDiseas){cout<<"dataDiseas.txt not found. Terminating.";return 0;}
+    while (true){
+        while(finPred.)   
 
+
+
+
+    }
 
     return 0;
 }
