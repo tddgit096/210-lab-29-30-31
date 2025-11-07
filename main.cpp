@@ -13,10 +13,12 @@ const int BIRTHCHANCEPREDATORS = 10, MAXAGEPREDATORS = 10 , PREDATORBIRTHAGE = 5
 const int BIRTHCHANCEPREY = 35, MAXAGEPREY = 7, PREYBIRTHAGE = 3;
 
 
-void runSimluation(map<string,tuple<animal,animal,disease>> &map){
+void runSimluation(map<string,tuple<animal,animal,disease>> &mapMaster){
     //print(map)
     int year = 1;
-    while(year<TOTALYEARS)
+    while(year<TOTALYEARS){
+        for (map<string,tuple<animal,animal,disease>>::iterator it = mapMaster.begin(); it != mapMaster.end(); ++it) {
+            it->second //preylist
         //For all diseases:
             //disease.infectRandomPopulation(list of prey)
         //For all predators:
@@ -27,8 +29,10 @@ void runSimluation(map<string,tuple<animal,animal,disease>> &map){
         //for all predators
             //predator.lifetick
             //birthChance
-
-        //print(map)
+        year++;
+    }
+    //print(map)
+    }
 }
 //print(map)
     //iterate through, print every element. neatly organized
