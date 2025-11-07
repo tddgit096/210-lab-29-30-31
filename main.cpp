@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <list>
 #include <map>
 #include <tuple>
@@ -114,13 +115,18 @@ class disease{
     //iterate through, print every element. neatly organized
 
 int main(){
+    //make map, holding tuple of animal and disease types.
     map<string,tuple<animal,animal,disease>> predatorMap ={
-        "Coyote": 
-        "Lion",
-        "Orcas",
-    }
-
-    
+        {"Coyotes", make_tuple(list<animal>(), list<animal>(), list<disease>())},
+        {"Lions", make_tuple(list<animal>(), list<animal>(), list<disease>())},
+        {"Orcas", make_tuple(list<animal>(), list<animal>(), list<disease>())}
+    };
+    ifstream finPred("dataPred.txt");
+    ifstream finPrey("dataPrey.txt");
+    ifstream finDiseas("dataDiseas.txt");
+    if(!finPred){cout<<"dataPred.txt not found. Terminating.";return 0;}
+    while (true)
+    fin.close();   
 
 
     return 0;
