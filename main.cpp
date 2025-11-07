@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <animal.h>
 using namespace std;
 
 const int TOTALYEARS=25;
@@ -34,6 +35,8 @@ class disease{
         }
     }
 };
+
+
 
 //class predator{
     //MEMBERS=====
