@@ -20,6 +20,10 @@ private:
 
 public: 
     string genRandName();
+    void infectRandomPopulation(list<animal> &p);
+    void copyDisease(disease d){
+        
+    }
     // Constructors
     disease();
     

@@ -9,7 +9,7 @@ class animal {
 private:
     string name;
     int age;
-    disease DiseaseHolder;
+    disease DiseaseHolder = NULL;
     bool isPredator;
 
 public:
@@ -29,7 +29,11 @@ public:
     void set_age(int a)             { age = a; };
     int get_age() const             { return age; }
     disease* getDisease()           { return &DiseaseHolder;}
-    void setDisease(disease)        {}//TODO, make a instantiated copy of the class type, transfer the info, but set disease incubation time to 0;
+    void setDisease(disease disease){
+        disease D;
+        disease D
+
+    }//TODO, make a instantiated copy of the class type, transfer the info, but set disease incubation time to 0;
 
     string genRandName(){
         srand(time(NULL));
@@ -45,7 +49,14 @@ public:
         return name;
     }
     void print(){
-        cout<<get_name()<<" : AGE:"<<get_age<<" : "
+        cout<<"["<<get_name()<<" : AGE:"<<get_age<<" : ";
+        if(DiseaseHolder!=NULL){
+            disease D = getDisease;
+            cout<<D->get_name();
+        }
+        else
+            cout<<" - ";
+        cout<<"]";
     }
 };
 
