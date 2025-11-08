@@ -21,15 +21,33 @@ private:
 public: 
     string genRandName();
     void infectRandomPopulation(list<animal> &p);
-    void copyDisease(disease d){
-        
-    }
     // Constructors
     disease();
     
 
     // setters and getters
-
+    void set_name(string n)                     { name = n; };
+    string get_name() const                     { return name; };
+    void set_massOutbreakChance(int chance)     { massOutbreakChance = chance;};
+    int get_massOutbreakChance()                { return massOutbreakChance;}
+    void set_currentDuration(int duration)      { currentDuration = duration;};
+    int get_currentDuration()                   { return currentDuration;}
+    void set_maxduration(int chance)            { maxDuration = chance;};
+    int get_maxduration()                       { return maxDuration;}
+    void set_lethalityChance(int chance)        { lethalityChance = chance;};    
+    int get_lethalityChance()                   { return lethalityChance;}
+    void set_cureChance(int chance)             { cureChance=chance;}
+    int get_cureChance()                        { return cureChance;}
+    //constructors
+    disease(const disease& d){
+        set_name(d.get_name());
+        set_massOutbreakChance(d.get_massOutbreakChance());
+        set_currentDuration(d.get_currentDuration());
+        set_maxduration(d.get_maxdurat)
+        set_lethalityChance
+        set_cureChance
+    }
+    }
 
     // Methods
     string genRandName(){
