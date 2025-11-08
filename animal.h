@@ -8,6 +8,7 @@
 using namespace std;
 
 const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10, TRANSMISSIONCHANCE = 50;
+const int MAXAGE = 10;
 
 
 class animal {
@@ -21,6 +22,7 @@ public:
     void print();
     string genRandName();
     void lifetick();
+    void diseasetick();//TODO
     void hunt(list<animal> &p);
     void die();
     // Constructors
@@ -60,7 +62,25 @@ public:
     }
 
     void lifetick(){
-        //TODO
+        age++;
+        if (age>MAXAGE){
+            die();
+        }
+        diseasetick();
+    }
+
+    void diseasetick(){
+        for (disease* d : DiseaseHolder) {
+            d->set_currentDuration(d->get_currentDuration()+1);
+            
+            if (rand()%100 < d->get_lethalityChance()){
+                die();
+            }
+            else (rand()%100 < d->get_cureChance()){
+                delete d;
+                DiseaseHolder.erase(d);
+            }
+        }
     }
 
     string genRandName(){
