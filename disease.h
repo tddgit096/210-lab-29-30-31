@@ -7,6 +7,8 @@
 #include <list>
 using namespace std;
 
+const int DEFAULTMASSOUTBREAKCHANCE = 10, DEFAULTMAXDURATION =5, 
+
 class disease {
 private:
     string name;
@@ -39,15 +41,27 @@ public:
     void set_cureChance(int chance)             { cureChance=chance;}
     int get_cureChance()                        { return cureChance;}
     //constructors
-    disease(const disease& d){
+    disease(disease& d){
+        //if a disease is passed, it will be copied, except current duration will be 0.
         set_name(d.get_name());
         set_massOutbreakChance(d.get_massOutbreakChance());
-        set_currentDuration(d.get_currentDuration());
-        set_maxduration(d.get_maxdurat)
-        set_lethalityChance
-        set_cureChance
+        set_currentDuration(0);
+        set_maxduration(d.get_maxduration());
+        set_lethalityChance(d.get_lethalityChance());
+        set_cureChance(d.get_cureChance());
     }
-    }
+    disease(string name = "empty",
+        int massOutbreakChance = DEFAULTMASSOUTBREAKCHANCE ,
+         ){
+        if(name == "empty"){
+            name = genRandName();
+        }
+        this->set_name(name);
+        this->set_massOutbreakChance(d.get_massOutbreakChance());
+        this->set_currentDuration(0);
+        this->set_maxduration(d.get_maxduration());
+        this->set_lethalityChance(d.get_lethalityChance());
+        this->set_cureChance(d.get_cureChance());
 
     // Methods
     string genRandName(){
