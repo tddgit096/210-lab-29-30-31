@@ -20,6 +20,7 @@ void print(map<string,tuple<list<animal>,list<animal>,list<disease>>> mapMaster,
 
 
 int main(){
+    srand(time(NULL));
     //make map, holding tuple of animal and disease types.
     map<string,tuple<list<animal>,list<animal>,list<disease>>> predatorMap ={
         {"Coyotes", make_tuple(list<animal>(), list<animal>(), list<disease>())},

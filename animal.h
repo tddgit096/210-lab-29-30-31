@@ -37,9 +37,18 @@ public:
     void setDisease(disease *disease) {DiseaseHolder = disease;}
 
     void hunt(list<animal> &p){
+        if (p.empty()) {
+            return;
+        }
         for(int i = 0; i<HUNTATTEMPTSPERYEAR;i++){ //how many attempts to hunt? 
-            
-            //get random element from the prey list.
+            if(rand()%100<HUNTSUCCESSCHANCE){
+                int index = rand()%p.size() -1;//get random index
+                auto it = p.begin();    //make an iterator at start of the list
+                advance(it,index);       //advance to the index we gen'd
+                if(it->getDisease() != nullptr){ //target is sick
+                    
+                }
+            }
         }
     }
 
