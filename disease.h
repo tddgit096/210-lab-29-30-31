@@ -23,6 +23,7 @@ private:
 public: 
     string genRandName();
     void infectRandomPopulation(list<animal> &p);
+    void print();
 
     // setters and getters
     void set_name(string n)                     { name = n; };
@@ -83,6 +84,10 @@ public:
             disease *dptr = this;
             P.setDisease(dptr);
         }
+    }
+
+    void print(){
+        cout<<"["<<get_name()<<"]";
     }
 };
 
