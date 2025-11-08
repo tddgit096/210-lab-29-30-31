@@ -5,6 +5,9 @@
 #include <iostream>
 using namespace std;
 
+const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10;
+
+
 class animal {
 private:
     string name;
@@ -15,6 +18,8 @@ private:
 public:
     void print();
     string genRandName();
+    void lifetick();
+    void hunt(list<animal> &p);
     // Constructors
     animal()                          { name = genRandName(); age = 0; }
     animal(bool ispred)               { name = genRandName(); age = 0; isPredator=ispred;}
@@ -30,6 +35,17 @@ public:
     int get_age() const             { return age; }
     disease* getDisease()           { return DiseaseHolder;}
     void setDisease(disease *disease) {DiseaseHolder = disease;}
+
+    void hunt(list<animal> &p){
+        for(int i = 0; i<HUNTATTEMPTSPERYEAR;i++){ //how many attempts to hunt? 
+            
+            //get random element from the prey list.
+        }
+    }
+
+    void lifetick(){
+
+    }
 
     string genRandName(){
         srand(time(NULL));
