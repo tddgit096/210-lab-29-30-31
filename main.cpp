@@ -14,12 +14,17 @@ const int BIRTHCHANCEPREDATORS = 10, MAXAGEPREDATORS = 10 , PREDATORBIRTHAGE = 5
 const int BIRTHCHANCEPREY = 35, MAXAGEPREY = 7, PREYBIRTHAGE = 3;
 
 
-void runSimluation(map<string,tuple<animal,animal,disease>> &mapMaster){
+void runSimluation(map<string,tuple<list<animal>,list<animal>,list<disease>>> &mapMaster){
     //print(map)
     int year = 1;
     while(year<TOTALYEARS){
-        for (map<string,tuple<animal,animal,disease>>::iterator it = mapMaster.begin(); it != mapMaster.end(); ++it) {
-            //get<0>(it->second); //predatorlist   
+        for (auto it = mapMaster.begin(); it != mapMaster.end(); ++it) {
+            auto &tempTuple = it->second;
+            list<animal>& animalList1 = get<0>(tempTuple);
+            list<animal>& animalList2 = get<1>(tempTuple);
+            list<disease>& diseaseList = get<2>(tempTuple);
+
+
             for (list<disease>::iterator diseaseIt = it->second.begin(); diseaseIt != it->second.end(); ++diseaseIt){
                 
             }
@@ -60,7 +65,7 @@ void runSimluation(map<string,tuple<animal,animal,disease>> &mapMaster){
 
 int main(){
     //make map, holding tuple of animal and disease types.
-    map<string,tuple<animal,animal,disease>> predatorMap ={
+    map<string,tuple<list<animal>,list<animal>,list<disease>>> predatorMap ={
         {"Coyotes", make_tuple(list<animal>(), list<animal>(), list<disease>())},
         {"Lions", make_tuple(list<animal>(), list<animal>(), list<disease>())},
         {"Orcas", make_tuple(list<animal>(), list<animal>(), list<disease>())}
