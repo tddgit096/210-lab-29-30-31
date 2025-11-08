@@ -7,7 +7,7 @@
 #include <list>
 using namespace std;
 
-const int DEFAULTMASSOUTBREAKCHANCE = 10, DEFAULTMAXDURATION =5, 
+const int DEFAULTMASSOUTBREAKCHANCE = 10, DEFAULTMAXDURATION =5, DEFAULTLETHALITYCHANCE = 10, DEFAULTCURECHANCE = 10;
 
 class disease {
 private:
@@ -23,9 +23,6 @@ private:
 public: 
     string genRandName();
     void infectRandomPopulation(list<animal> &p);
-    // Constructors
-    disease();
-    
 
     // setters and getters
     void set_name(string n)                     { name = n; };
@@ -40,6 +37,7 @@ public:
     int get_lethalityChance()                   { return lethalityChance;}
     void set_cureChance(int chance)             { cureChance=chance;}
     int get_cureChance()                        { return cureChance;}
+
     //constructors
     disease(disease& d){
         //if a disease is passed, it will be copied, except current duration will be 0.
@@ -50,19 +48,23 @@ public:
         set_lethalityChance(d.get_lethalityChance());
         set_cureChance(d.get_cureChance());
     }
+        //default constructor
     disease(string name = "empty",
         int massOutbreakChance = DEFAULTMASSOUTBREAKCHANCE ,
-         ){
+        int maxDuration = DEFAULTMAXDURATION,
+        int lethalityChance = DEFAULTLETHALITYCHANCE,
+        int cureChance = DEFAULTCURECHANCE)
+        {
         if(name == "empty"){
             name = genRandName();
         }
         this->set_name(name);
-        this->set_massOutbreakChance(d.get_massOutbreakChance());
+        this->set_massOutbreakChance(massOutbreakChance);
         this->set_currentDuration(0);
-        this->set_maxduration(d.get_maxduration());
-        this->set_lethalityChance(d.get_lethalityChance());
-        this->set_cureChance(d.get_cureChance());
-
+        this->set_maxduration(maxDuration);
+        this->set_lethalityChance(lethalityChance);
+        this->set_cureChance(cureChance);
+    }
     // Methods
     string genRandName(){
         srand(time(NULL));
@@ -72,12 +74,14 @@ public:
         name += to_string(rand()%100);
         return name;
     }
-    void infectRandomPopulation(list<animal> &p){
+
+    void infectRandomPopulation(list<animal> &popList){
         if (rand() > massOutbreakChance){
             return ;//no one was infected by this disease this year
         }  
-        for(auto P : p){
-            //P.setDisease(this);
+        for(auto P : popList){
+            disease *dptr = this;
+            P.setDisease(dptr);
         }
     }
 };

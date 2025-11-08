@@ -44,6 +44,7 @@ void runSimluation(map<string,tuple<list<animal>,list<animal>,list<disease>>> &m
 
 void print(map<string,tuple<list<animal>,list<animal>,list<disease>>> mapMaster){
     for (auto it = mapMaster.begin(); it != mapMaster.end(); ++it){
+        //
     }
 }
 
