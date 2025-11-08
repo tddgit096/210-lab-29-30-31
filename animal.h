@@ -3,16 +3,17 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10;
+const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10, TRANSMISSIONCHANCE = 50;
 
 
 class animal {
 private:
     string name;
     int age;
-    disease* DiseaseHolder = nullptr;
+    vector<disease*> DiseaseHolder; //a vector of pointers
     bool isPredator;
 
 public:
@@ -33,8 +34,8 @@ public:
     string get_name() const         { return name; };
     void set_age(int a)             { age = a; };
     int get_age() const             { return age; }
-    disease* getDisease()           { return DiseaseHolder;}
-    void setDisease(disease *disease) {DiseaseHolder = disease;}
+    vector<disease*> getDisease()   { return DiseaseHolder;}
+    void setDisease(disease *disease) {DiseaseHolder.push_back(disease);}
 
     void hunt(list<animal> &p){
         if (p.empty()) {
@@ -45,8 +46,12 @@ public:
                 int index = rand()%p.size() -1;//get random index
                 auto it = p.begin();    //make an iterator at start of the list
                 advance(it,index);       //advance to the index we gen'd
-                if(it->getDisease() != nullptr){ //target is sick
-                    
+                if(it->getDisease().size()>0){ //target is sick
+                    for (vector<disease*>::iterator diseaseIt = (it->getDisease()).begin(); diseaseIt != (it->getDisease()).end(); ++diseaseIt) {
+                        if(rand()%100<TRANSMISSIONCHANCE)
+                           setDisease(*diseaseIt->first); 
+                    }
+                    TRANSMISSIONCHANCE   
                 }
             }
         }
