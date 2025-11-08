@@ -60,7 +60,7 @@ void run_simulation(map<string,tuple<list<animal>,list<animal>,list<disease>>> &
             //iterate through predators   
             for (animal & a : predatorList) {
                 a.hunt(preyList);//TODO, make hunt proc and call it on all predators.
-                //same with lifetick, which calls diseaseresolve
+                a.lifetick();
             }
             //iterate through prey
             for (animal & a : predatorList) {

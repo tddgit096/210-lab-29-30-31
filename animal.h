@@ -72,7 +72,10 @@ public:
     void diseasetick(){
         for (disease* d : DiseaseHolder) {
             d->set_currentDuration(d->get_currentDuration()+1);
-            
+            if(d->get_currentDuration()>d->get_maxduration()){ //cured with time
+                delete d;
+                DiseaseHolder.erase(d);
+            }
             if (rand()%100 < d->get_lethalityChance()){
                 die();
             }
