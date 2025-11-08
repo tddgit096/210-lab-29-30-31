@@ -23,44 +23,29 @@ void runSimluation(map<string,tuple<list<animal>,list<animal>,list<disease>>> &m
             list<animal>& predatorList = get<0>(tempTuple);
             list<animal>& preyList = get<1>(tempTuple);
             list<disease>& diseaseList = get<2>(tempTuple);
-
-            for (list<disease>::iterator diseaseIt = it->second.begin(); diseaseIt != it->second.end(); ++diseaseIt){
-                
+            //iterate through diseases:
+            for (disease & d : diseaseList) {
+                d.infectRandomPopulation(preyList);//potentially infect the prey population     
+            }         
+            //iterate through predators   
+            for (animal & a : predatorList) {
+                //a.hunt()//TODO, make hunt proc and call it on all predators.
+                //same with lifetick, which calls diseaseresolve
             }
-            
-            
-            for (list<animal>::iterator predatorIt = it.begin(); predatorIt != it.end(); ++predatorIt){
-                
+            //iterate through prey
+            for (animal & a : predatorList) {
+                //just call lifetick
             }
-           
-            for_each(get<0>(it->second).begin(), get<0>(it->second).end(), ),
-            get<1>(it->second); //preylist
-
-            get<2>(it->second); //diseaselist 
-            for_each(get<3>(it->second)){
-
-            }
-            for (list<animal>::iterator predatorIt = predatorIt.begin(); it != predatorIt.end(); ++it){
-                
-            }
-
-        //For all diseases:
-            //disease.infectRandomPopulation(list of prey)
-        //For all predators:
-            //predator.hunt(list of prey)
-        //for all prey
-            //prey.lifetick
-            //birthChance
-        //for all predators
-            //predator.lifetick
-            //birthChance
+        }
         year++;
     }
     //print(map)
+}
+
+void print(map<string,tuple<list<animal>,list<animal>,list<disease>>> mapMaster){
+    for (auto it = mapMaster.begin(); it != mapMaster.end(); ++it){
     }
 }
-//print(map)
-    //iterate through, print every element. neatly organized
 
 int main(){
     //make map, holding tuple of animal and disease types.

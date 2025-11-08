@@ -12,7 +12,8 @@ private:
     disease DiseaseHolder;
     bool isPredator;
 
-public: 
+public:
+    void print();
     string genRandName();
     // Constructors
     animal()                          { name = genRandName(); age = 0; }
@@ -42,6 +43,9 @@ public:
         name+=rand()%1000;
         name+=")";
         return name;
+    }
+    void print(){
+        cout<<get_name()<<" : AGE:"<<get_age<<" : "
     }
 };
 
