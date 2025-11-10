@@ -22,7 +22,7 @@ public:
     void print();
     string genRandName();
     void lifetick();
-    void diseasetick();//TODO
+    void diseasetick();
     void hunt(list<animal> &p);
     void die();
     // Constructors
@@ -70,11 +70,12 @@ public:
     }
 
     void diseasetick(){
-        for (disease* d : DiseaseHolder) {
+        for (auto it = DiseaseHolder.begin(); it != DiseaseHolder.end(); ){
+            disease* d = *it; //disease pointer to dereferenced iterator
             d->set_currentDuration(d->get_currentDuration()+1);
             if(d->get_currentDuration()>d->get_maxduration()){ //cured with time
                 delete d;
-                DiseaseHolder.erase(d);
+                it = DiseaseHolder.erase(it); //erases it and gets the next iterator, I had to research this.
             }
             if (rand()%100 < d->get_lethalityChance()){
                 die();
@@ -122,6 +123,6 @@ public:
         //clear the pointers in the vector.
         DiseaseHolder.clear();
     }
-}
+};
 
 #endif
