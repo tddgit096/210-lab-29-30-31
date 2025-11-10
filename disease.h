@@ -27,7 +27,7 @@ public:
 
     // setters and getters
     void set_name(string n)                     { name = n; };
-    string get_name() const                     { return name; };
+    string get_name()                           { return name; };
     void set_massOutbreakChance(int chance)     { massOutbreakChance = chance;};
     int get_massOutbreakChance()                { return massOutbreakChance;}
     void set_currentDuration(int duration)      { currentDuration = duration;};

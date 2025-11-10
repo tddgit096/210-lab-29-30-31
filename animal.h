@@ -38,10 +38,10 @@ public:
 
     // setters and getters
     void set_name(string n)         { name = n; };
-    string get_name() const         { return name; };
+    string get_name()               { return name; };
     void set_age(int a)             { age = a; };
-    int get_age() const             { return age; }
-    vector<disease*> getDisease()   { return DiseaseHolder;}
+    int get_age()                   { return age; }
+    vector<disease*>& getDisease()   { return DiseaseHolder;}
     void setDisease(disease *disease) {DiseaseHolder.push_back(disease);}
 };
 #endif

@@ -11,10 +11,11 @@ void animal::hunt(list<animal> &p){
             int index = rand()%p.size() -1;//get random index
             auto it = p.begin();    //make an iterator at start of the list
             advance(it,index);       //advance to the index we gen'd
-            if(it->getDisease().size()>0){ //target is sick
-                for (auto diseaseIt = (it->getDisease()).begin(); diseaseIt != (it->getDisease()).end(); ++diseaseIt) {
+            vector<disease*>& targetDiseases = it->getDisease();
+            if(!targetDiseases.empty()){ //target is sick
+                for (disease* d : targetDiseases) {  
                     if(rand()%100<TRANSMISSIONCHANCE)
-                        setDisease(*diseaseIt); 
+                        setDisease(d); 
                 }
             }
             it->die();

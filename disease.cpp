@@ -14,11 +14,11 @@ disease::disease(disease& d){
     set_cureChance(d.get_cureChance());
 }
     //default constructor
-disease::disease(string name = "empty",
-    int massOutbreakChance = DEFAULTMASSOUTBREAKCHANCE ,
-    int maxDuration = DEFAULTMAXDURATION,
-    int lethalityChance = DEFAULTLETHALITYCHANCE,
-    int cureChance = DEFAULTCURECHANCE)
+disease::disease(string name,
+    int massOutbreakChance,
+    int maxDuration,
+    int lethalityChance,
+    int cureChance)
     {
     if(name == "empty"){
         name = genRandName();
