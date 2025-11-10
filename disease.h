@@ -3,7 +3,7 @@
 #ifndef DISEASE_H
 #define DISEASE_H
 #include <iostream>
-#include <animal.h>
+#include "animal.h"
 #include <list>
 using namespace std;
 

@@ -4,7 +4,7 @@
 #define ANIMAL_H
 #include <iostream>
 #include <vector>
-#include <disease.h>
+#include "disease.h"
 using namespace std;
 
 const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10, TRANSMISSIONCHANCE = 50;
@@ -80,9 +80,9 @@ public:
             if (rand()%100 < d->get_lethalityChance()){
                 die();
             }
-            else (rand()%100 < d->get_cureChance()){
+            else if (rand()%100 < d->get_cureChance()) {
                 delete d;
-                DiseaseHolder.erase(d);
+                it = DiseaseHolder.erase(it); //erases it and gets the next iterator, I had to research this.
             }
         }
     }

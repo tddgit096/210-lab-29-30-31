@@ -4,8 +4,8 @@
 #include <map>
 #include <tuple>
 #include <array>
-#include <animal.h>
-#include <disease.h>
+#include "animal.h"
+#include "disease.h"
 #include <algorithm>
 using namespace std;
 
@@ -69,7 +69,7 @@ void run_simulation(map<string,tuple<list<animal>,list<animal>,list<disease>>> &
         }
         year++;
     }
-    print(mapMaster);
+    print(mapMaster,year);
 }
 
 //prints the function.
