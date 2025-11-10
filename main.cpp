@@ -1,11 +1,11 @@
+#include "animal.h"
+#include "disease.h"
 #include <iostream>
 #include <fstream>
 #include <list>
 #include <map>
 #include <tuple>
 #include <array>
-#include "animal.h"
-#include "disease.h"
 #include <algorithm>
 using namespace std;
 

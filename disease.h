@@ -2,10 +2,12 @@
 
 #ifndef DISEASE_H
 #define DISEASE_H
+//#include "animal.h" causes error, I have to use forward declaration
 #include <iostream>
-#include "animal.h"
 #include <list>
 using namespace std;
+
+class animal; //forward declaration instead of include header. I had to research this.
 
 const int DEFAULTMASSOUTBREAKCHANCE = 10, DEFAULTMAXDURATION =5, DEFAULTLETHALITYCHANCE = 10, DEFAULTCURECHANCE = 10;
 
@@ -18,11 +20,9 @@ private:
     int lethalityChance;
     int cureChance;
 
-
-
 public: 
     string genRandName();
-    void infectRandomPopulation(list<animal> &p);
+    void infectRandomPopulation(list<animal*> &p);
     void print();
 
     // setters and getters
@@ -76,7 +76,7 @@ public:
         return name;
     }
 
-    void infectRandomPopulation(list<animal> &popList){
+    void infectRandomPopulation(list<animal*> &popList){
         if (rand() > massOutbreakChance){
             return ;//no one was infected by this disease this year
         }  

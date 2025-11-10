@@ -4,11 +4,13 @@
 #define ANIMAL_H
 #include <iostream>
 #include <vector>
-#include "disease.h"
+//#include "disease.h" //do not include, causes circular dependency
 using namespace std;
 
 const int HUNTATTEMPTSPERYEAR = 2, HUNTSUCCESSCHANCE = 10, TRANSMISSIONCHANCE = 50;
 const int MAXAGE = 10;
+
+class disease; //forward declaration instead of include header. I had to research this.
 
 
 class animal {
