@@ -1,7 +1,6 @@
 #include "animal.h"
-#include "disease.h"  // Now we can include it!
+#include "disease.h" 
 #include <list>
-
 
 void animal::hunt(list<animal> &p){
     if (p.empty()) {
@@ -23,7 +22,7 @@ void animal::hunt(list<animal> &p){
     }
 }
 
-void lifetick(){
+void animal::lifetick(){
     age++;
     if (age>MAXAGE){
         die();
@@ -31,7 +30,7 @@ void lifetick(){
     diseasetick();
 }
 
-void diseasetick(){
+void animal::diseasetick(){
     for (auto it = DiseaseHolder.begin(); it != DiseaseHolder.end(); ){
         disease* d = *it; //disease pointer to dereferenced iterator
         d->set_currentDuration(d->get_currentDuration()+1);
@@ -49,7 +48,7 @@ void diseasetick(){
     }
 }
 
-string genRandName(){
+string animal::genRandName(){
     srand(time(NULL));
     string name="";
     if(isPredator){
@@ -62,7 +61,7 @@ string genRandName(){
     name+=")";
     return name;
 }
-void print(){
+void animal::print(){
     cout<<"["<<get_name()<<" / AGE:"<<get_age<<" : ";
     if(DiseaseHolder.size()>0){
         cout<<"DISEASES: ";
@@ -73,11 +72,11 @@ void print(){
     cout<<"]";
 }
 
-void die(){
+void animal::die(){
     delete this;
 }
 
-~animal(){
+animal::~animal(){
     //delete all pointers for diseases vector
     for (disease* d : DiseaseHolder) {
         delete d;

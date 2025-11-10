@@ -43,5 +43,5 @@ public:
     int get_age() const             { return age; }
     vector<disease*> getDisease()   { return DiseaseHolder;}
     void setDisease(disease *disease) {DiseaseHolder.push_back(disease);}
-}
+};
 #endif

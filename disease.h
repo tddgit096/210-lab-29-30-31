@@ -22,7 +22,7 @@ private:
 
 public: 
     string genRandName();
-    void infectRandomPopulation(list<animal*> &p);
+    void infectRandomPopulation(list<animal> &p);
     void print();
 
     // setters and getters
@@ -38,5 +38,13 @@ public:
     int get_lethalityChance()                   { return lethalityChance;}
     void set_cureChance(int chance)             { cureChance=chance;}
     int get_cureChance()                        { return cureChance;}
-}
+    //constructors
+    disease(string name = "empty",
+    int massOutbreakChance = DEFAULTMASSOUTBREAKCHANCE ,
+    int maxDuration = DEFAULTMAXDURATION,
+    int lethalityChance = DEFAULTLETHALITYCHANCE,
+    int cureChance = DEFAULTCURECHANCE); //parametric and also default
+    disease(disease& d);//pass self to duplicate
+
+};
 #endif
