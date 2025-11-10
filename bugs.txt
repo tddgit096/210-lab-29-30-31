@@ -1,0 +1,3 @@
+binding reference of type ‘disease&’ to ‘const disease’ discards qualifiers, bug has me stumped.
+had to make tuple container to hold different classes to solve a type bug with array.
+had to include a vector of pointers to hold disease instances in animal class.
