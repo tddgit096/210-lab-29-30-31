@@ -8,10 +8,10 @@ void animal::hunt(list<animal> &p){
     }
     for(int i = 0; i<HUNTATTEMPTSPERYEAR;i++){ //how many attempts to hunt? 
         if(rand()%100<HUNTSUCCESSCHANCE){
-            int index = rand()%p.size() -1;//get random index
+            int index = rand()%p.size();//get random index
             auto it = p.begin();    //make an iterator at start of the list
             advance(it,index);       //advance to the index we gen'd
-            vector<disease*>& targetDiseases = it->getDisease();
+            const vector<disease*>& targetDiseases = it->getDisease();
             if(!targetDiseases.empty()){ //target is sick
                 for (disease* d : targetDiseases) {  
                     if(rand()%100<TRANSMISSIONCHANCE)
@@ -63,7 +63,7 @@ string animal::genRandName(){
     return name;
 }
 void animal::print(){
-    cout<<"["<<get_name()<<" / AGE:"<<get_age<<" : ";
+    cout<<"["<<get_name()<<" / AGE:"<<get_age()<<" : ";
     if(DiseaseHolder.size()>0){
         cout<<"DISEASES: ";
         for (disease * d : DiseaseHolder) {
